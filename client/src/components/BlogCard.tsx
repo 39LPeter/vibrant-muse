@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link } from "wouter";
 import { Calendar, Clock } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 
@@ -22,7 +22,7 @@ export const BlogCard = ({
   image,
 }: BlogCardProps) => {
   return (
-    <Link to={`/blog/${id}`} className="group">
+    <Link href={`/blog/${id}`} className="group" data-testid={`link-blog-${id}`}>
       <article className="bg-card rounded-3xl overflow-hidden shadow-soft hover:shadow-elevated transition-smooth h-full flex flex-col">
         <div className="aspect-video bg-gradient-primary relative overflow-hidden">
           {image ? (

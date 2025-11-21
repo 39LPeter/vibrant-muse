@@ -2,7 +2,7 @@ import { Layout } from "@/components/Layout";
 import { Button } from "@/components/ui/button";
 import { BlogCard } from "@/components/BlogCard";
 import { blogPosts } from "@/data/blogPosts";
-import { Link } from "react-router-dom";
+import { Link } from "wouter";
 import { ArrowRight, Sparkles, Heart, Users } from "lucide-react";
 
 const Index = () => {
@@ -31,8 +31,9 @@ const Index = () => {
               asChild
               size="lg"
               className="rounded-full gradient-primary text-white shadow-elevated hover:shadow-soft transition-smooth text-lg px-8"
+              data-testid="button-start-reading"
             >
-              <Link to="/blog">
+              <Link href="/blog">
                 Start Reading <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
             </Button>
@@ -41,8 +42,9 @@ const Index = () => {
               size="lg"
               variant="outline"
               className="rounded-full text-lg px-8"
+              data-testid="button-learn-more"
             >
-              <Link to="/about">Learn More</Link>
+              <Link href="/about">Learn More</Link>
             </Button>
           </div>
         </div>
@@ -102,8 +104,9 @@ const Index = () => {
             size="lg"
             variant="outline"
             className="rounded-full text-lg px-8"
+            data-testid="button-view-all-posts"
           >
-            <Link to="/blog">
+            <Link href="/blog">
               View All Posts <ArrowRight className="ml-2 h-5 w-5" />
             </Link>
           </Button>

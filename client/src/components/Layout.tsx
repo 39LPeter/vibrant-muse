@@ -2,13 +2,13 @@ import { useState, useEffect } from "react";
 import { NavLink } from "@/components/NavLink";
 import { Button } from "@/components/ui/button";
 import { Moon, Sun, Menu, X } from "lucide-react";
-import { useLocation } from "react-router-dom";
+import { useLocation } from "wouter";
 
 export const Layout = ({ children }: { children: React.ReactNode }) => {
   const [isDark, setIsDark] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const location = useLocation();
+  const [location] = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -38,7 +38,7 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
       >
         <nav className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
-            <NavLink to="/" className="flex items-center space-x-2">
+            <NavLink href="/" className="flex items-center space-x-2" data-testid="link-home">
               <div className="w-10 h-10 rounded-2xl gradient-primary flex items-center justify-center">
                 <span className="text-xl font-bold text-white">FT</span>
               </div>
@@ -50,30 +50,34 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-8">
               <NavLink
-                to="/"
+                href="/"
                 className="text-foreground/70 hover:text-foreground transition-smooth font-medium"
                 activeClassName="text-primary"
+                data-testid="link-nav-home"
               >
                 Home
               </NavLink>
               <NavLink
-                to="/about"
+                href="/about"
                 className="text-foreground/70 hover:text-foreground transition-smooth font-medium"
                 activeClassName="text-primary"
+                data-testid="link-nav-about"
               >
                 About
               </NavLink>
               <NavLink
-                to="/blog"
+                href="/blog"
                 className="text-foreground/70 hover:text-foreground transition-smooth font-medium"
                 activeClassName="text-primary"
+                data-testid="link-nav-blog"
               >
                 Blog
               </NavLink>
               <NavLink
-                to="/contact"
+                href="/contact"
                 className="text-foreground/70 hover:text-foreground transition-smooth font-medium"
                 activeClassName="text-primary"
+                data-testid="link-nav-contact"
               >
                 Contact
               </NavLink>
@@ -116,30 +120,34 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
           {isMobileMenuOpen && (
             <div className="md:hidden mt-4 pb-4 space-y-4 animate-in fade-in slide-in-from-top-4">
               <NavLink
-                to="/"
+                href="/"
                 className="block text-foreground/70 hover:text-foreground transition-smooth font-medium py-2"
                 activeClassName="text-primary"
+                data-testid="link-mobile-home"
               >
                 Home
               </NavLink>
               <NavLink
-                to="/about"
+                href="/about"
                 className="block text-foreground/70 hover:text-foreground transition-smooth font-medium py-2"
                 activeClassName="text-primary"
+                data-testid="link-mobile-about"
               >
                 About
               </NavLink>
               <NavLink
-                to="/blog"
+                href="/blog"
                 className="block text-foreground/70 hover:text-foreground transition-smooth font-medium py-2"
                 activeClassName="text-primary"
+                data-testid="link-mobile-blog"
               >
                 Blog
               </NavLink>
               <NavLink
-                to="/contact"
+                href="/contact"
                 className="block text-foreground/70 hover:text-foreground transition-smooth font-medium py-2"
                 activeClassName="text-primary"
+                data-testid="link-mobile-contact"
               >
                 Contact
               </NavLink>
@@ -172,32 +180,36 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
               <ul className="space-y-2">
                 <li>
                   <NavLink
-                    to="/"
+                    href="/"
                     className="text-muted-foreground hover:text-foreground transition-smooth text-sm"
+                    data-testid="link-footer-home"
                   >
                     Home
                   </NavLink>
                 </li>
                 <li>
                   <NavLink
-                    to="/about"
+                    href="/about"
                     className="text-muted-foreground hover:text-foreground transition-smooth text-sm"
+                    data-testid="link-footer-about"
                   >
                     About
                   </NavLink>
                 </li>
                 <li>
                   <NavLink
-                    to="/blog"
+                    href="/blog"
                     className="text-muted-foreground hover:text-foreground transition-smooth text-sm"
+                    data-testid="link-footer-blog"
                   >
                     Blog
                   </NavLink>
                 </li>
                 <li>
                   <NavLink
-                    to="/contact"
+                    href="/contact"
                     className="text-muted-foreground hover:text-foreground transition-smooth text-sm"
+                    data-testid="link-footer-contact"
                   >
                     Contact
                   </NavLink>
