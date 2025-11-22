@@ -1,0 +1,6 @@
+[build]
+  command = "bun run build"
+  publish = "dist/public"
+
+[functions]
+  directory = "netlify/functions"

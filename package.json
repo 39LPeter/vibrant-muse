@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "tsx watch --clear-screen=false --ignore '**/*.timestamp-*.mjs' server/index.ts",
-    "build": "vite build --outDir dist/public && tsc -p tsconfig.server.json",
+    "build": "vite build --config vite.config.ts && tsc -p tsconfig.server.json",
     "start": "NODE_ENV=production node dist/index.js",
     "lint": "eslint .",
     "check": "tsc --noEmit -p tsconfig.json && tsc --noEmit -p tsconfig.server.json"
