@@ -15,9 +15,6 @@ export default defineConfig(({ mode }) => ({
     },
   },
   root: path.resolve(__dirname, "client"),
-  server: {
-    allowedHosts: true,
-  },
   build: {
     outDir: path.resolve(__dirname, "dist/public"),
     emptyOutDir: true,

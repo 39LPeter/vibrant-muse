@@ -20,12 +20,18 @@ export async function setupVite(app: Express, server: Server) {
     server: {
       middlewareMode: true,
       hmr: { server },
+      allowedHosts: true,
     },
     appType: "custom",
   });
 
   app.use(vite.middlewares);
   app.use("*", async (req, res, next) => {
+    // Skip Vite internal paths and source files
+    if (req.path.startsWith("/@") || req.path.startsWith("/node_modules") || req.path.startsWith("/src")) {
+      return next();
+    }
+
     const url = req.originalUrl;
 
     try {
